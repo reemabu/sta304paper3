@@ -1,0 +1,130 @@
+---
+title: "Health Benefits of Marriage"
+author: 
+  - Reem Abughazaleh
+thanks: "Code and data are available at: https://github.com/reemabu/sta304paper3.git"
+date: "20 March 2022"
+abstract: "Health benefits of marriage have long been discussed and extensively studied but previous research has yielded inconsistent results for males and females. At older ages accumulated benefits or disadvantages of past marital experience, as well as current marital status, may be relevant, but fewer studies have considered effects of marital history. Possible effects of parity, and the extent to which these may contribute to marital status differentials in health, have also been rarely considered.Marriage has been long considered a healthy institution, with a long list of benefits. For instance, very happily married people have a reduced risk of heart disease and stroke.Using the General Social Survey, the author analyzes the physical and mental health among the adult population in the year 2018 factoring in their marital status. The results demonstrate that divorced people and males have lesser number of poor physical and mental health in the past 30 days of the survey."
+output:
+  pdf_document: default
+toc: FALSE
+bibliography: references.bib
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+```{r, include=FALSE}
+library(ggplot2)
+library(readr)
+Data <- read_csv("GSS 2018 Data.csv")
+attach(Data)
+```
+
+
+# Introduction
+People who are in a marriage have much higher levels of mental health than those who have never been married or were previously married. The most obvious reason for that is that people tend to get happier over time and also attract more friends and family members [@one]. When two people are in a marriage, they are going to be generally very happy and excited to be with one another as opposed to using their marital status as an escape from the routine they used to follow while they were single. These marriages will also tend to attract other friends where as not being married tends to scare some people off.
+
+There are two main reasons why unmarried people tend to be in poorer health than married people. The first is that, the unmarried are less likely to have a stable, healthy partnership than the married. Researchers think this might be because if you aren't married, you will have more trouble finding someone who is willing to commit. That's a lot of pressure and stress on your mental and physical health.There are a lot of things that can put too much strain on a marriage, whether it be from outside sources or from within. The first step to making your marriage work is (ironically) letting go and accepting who your partner truly is. Of course, what works for some people may not work for others.
+
+The causation-selection debate centers on whether marriage decreases the probability of being ill, being ill decreases the probability of becoming and staying married, or some combination of both. The social causation perspective argues that the advantages that the married have are attributable mainly to the inherent assets and characteristics of marriage, such as access to reliable social support [@two].The social selection perspective also argues that if you are unhealthy, you are likely to be single and more likely to get divorced. This is because healthier people may have a better chance to find a partner because they aren't as limited in the prospects they can choose from [@three]. Also, if partners get married and they aren't healthy, they are more likely to get divorced due to their inability to make rich social connections.
+
+
+
+
+
+# Data
+The NORC is a national research program. Its goal is to collect data on various important issues and diffusion studies related issues of social sciences. The data comes from The General Social Survey (GSS), a set of interviews administered by NORC to an independently drawn sample of English-speaking persons who are 18 years or older, living in non-institutional arrangements within the United States. Each survey was collected independently, beginning with 1972 and ending in 2004, and beginning again in 2006 using Spanish-speaking interviewers. There were a total of 64,814 completed interviews in the collection.
+For this study, 2018 data has been considered to understand the physical and mental health of the population depending on their marital status. 
+There are lot of missing observations in the data set which makes the comparison of different variables/aspects of the survey incomparable. 
+
+
+
+# Results
+
+In the 2018 survey, 1296 females participated in comparison to 1052 males. The most of the population is young and only a few individuals are above 60 years of age. The maximum age of a respondent is 72 years with just 29 respondents. 
+The current marital status of a person is married, widowed, divorced, separated and never married with 998 respondents being married(the highest) and 670 being never married(the second highest) and 75 respondents as separated(the lowest statistic). There were 298 people who have ever been divorced in their lives as opposed to 896 vs the rest who chose not to answer this question. On being asked about their overall health condition, 771 respondents selected "Good Health Condition" vs 84 who had poor health condition. The respondents were also asked to mark the number of bad days they had in terms of physical and mental health in the last 30 days of the survey. The females on an average report to have higher number of poor physical and mental health in the last 30 days of the survey.  
+
+Most of the respondents agree that they have satisfactory safety and health conditions at work with only 77 respondents disagreeing to it. 81% of the respondents did not have to miss work due to health in the past 30 days whereas only 24 people had to miss work for more than 10 days in the past 30 days out of which 10 people missed their work for the entire duration of 30 days. In general, the respondent reports his/her physical health as good. 96 respondents (4.12%) reports their physical health to be poor. 
+
+
+597 respondents agreed that they know somebody who has been diagnosed with mental health problem vs 533 people. However, 1130 people chose to not answer this question which suggests that there is still a stigma of mental health prevailing in the society. 
+
+On being asked whether the nation's health and education are being improved and protected, the majority of the respondents feel too little about it. Only approximately 5% respondents agree that the nation's health and education level are being improved by too much. 
+
+
+
+
+```{r}
+
+ggplot(Data, aes(x=(HEALTH), fill=(SEX))) + 
+  geom_bar(position = "dodge") +
+  scale_fill_hue(c = 40) +
+  theme(legend.position="right") +
+  ggtitle("Health Condition as per Gender") +
+  labs(x = "HEALTH CONDITION")
+
+
+ggplot(Data, aes(x=(MARITAL), fill=(MARITAL))) + 
+  geom_bar( ) +
+  scale_fill_hue(c = 40) +
+  theme(legend.position="none") +
+  ggtitle("Respondent's Marital Status") +
+  labs(x = "Marital Status")
+
+
+ggplot(Data, aes(x=(HLTHPHYS), fill=(HLTHPHYS))) + 
+  geom_bar( ) +
+  scale_fill_hue(c = 40) +
+  theme(legend.position="none") +
+  ggtitle("Physical Health") +
+  labs(x = "Health Condition")
+
+```
+
+
+
+# Discussion
+The issue of mental and physical health has been analyzed in males and females by incorporating their current marital status and whether they have been divorced/separated/widowed in the past. The majority of the respondents feel that the overall health and education is not getting improved which needs to be worked upon. 
+The stress factor and poor health is approximately equally likely among males and females and married or separated or divorced. 
+
+\newpage
+
+\appendix
+
+# Appendix {-}
+
+# Survey
+Follow the link to our survey to the  survey:https://forms.gle/SgqTpcLvScKdwg4H8
+
+\newpage
+# References
+
+Gove, W. R. (1973). Sex, marital status, and mortality. American journal of sociology, 79(1), 45-67.
+
+Grundy, E., & Tomassini, C. (2010). Marital history, health and mortality among older men and women in England and Wales. BMC public health, 10(1), 1-14.
+
+Keyes, C. L. M. (1998). Social well-being. Social psychology quarterly, 121-140.
+
+R Core Team. 2020. R: A Language and Environment for Statistical Computing. Vienna, Austria: R
+Foundation for Statistical Computing. https://www.R-project.org/.
+
+Wickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https:
+//ggplot2.tidyverse.org.
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain
+François, Garrett Grolemund, et al. 2019. “Welcome to the tidyverse.” Journal of Open Source Software 4
+(43): 1686. https://doi.org/10.21105/joss.01686.
+
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. Dplyr: A Grammar of Data
+Manipulation. https://CRAN.R-project.org/package=dplyr.
+
+Xie, Yihui. 2015. Dynamic Documents with R and knitr. 2nd edition. Chapman and Hall/CRC. ISBN
+  978-1498716963
+
+
